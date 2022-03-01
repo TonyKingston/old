@@ -21,9 +21,9 @@
 						<div class="inner">
 
 							<!-- Logo -->
-								<a href="index.html" class="logo">
+								<!--<a href="index.html" class="logo">
 									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Phantom</span>
-								</a>
+								</a>-->
 
 							<!-- Nav -->
 								<nav>
@@ -40,21 +40,29 @@
 						<h2>Menu</h2>
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Ipsum veroeros</a></li>
+							<li><a href="index.html">Under Construction</a></li>
+							<!--<li><a href="generic.html">Ipsum veroeros</a></li>
 							<li><a href="generic.html">Tempus etiam</a></li>
 							<li><a href="generic.html">Consequat dolor</a></li>
-							<li><a href="elements.html">Elements</a></li>
+							<li><a href="elements.html">Elements</a></li>-->
 						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>Generic Page</h1>
+							<h1>Rendering an Island Scene</h1>
 							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+							<p>As part of course at Newcastle University, I was tasked with creating a graphical scene themed around a tropical island. I used OpenGL to achieve this, employing a range of graphical techniques that you can see below:</p>
+							<ul>
+								<li>Used a heightmap to generate the terrain</li>
+								<li>Implemented the Blinn-Phong lighting model. Directional, point and spot lights are supported</li>
+								<li>The scenes is managed with a scene graph, with seperate lists for opaque and transparent objects</li>
+								<li>The trees are instanced rendered, with their transfroms written to a uniform buffer for additional efficiency</li>
+								<li>Using a cubemap for the skybox</li>
+								<li>Vertex skinnig for animated meshes</li>
+							</ul> 
+							<p>The water is probably the most complex part of the scene and the part that I'm most proud of. First, everything above the water is rendered into a texture which is then projected onto the water's surface, this creates our reflection. Then the same is done to the area below the water, acting as the refraction texture. In the shader, I sample a dudv map in both the x and y directions. Adding this value to the input texture coordinates results in a refraction effect when the refraction texture is sampled. Waves are simulated by adding a varying water movement value to the coordinates. To achieve a Fresnel effect, I take the dot product of the view direction and the calculated normal and mix it in with the reflect and refract textures. Another feature of the water is that it is transparent at low depths, as you'd expect to see in real life. This is done by calculating the distance between the camera and the terrain under the water. The shader uses to the reflection depth buffer to do this. Then the alpha channel of the final output colour is set to the calculated depth value, divided by a desired threshold, and clamped between zero and one.</p>
 						</div>
 					</div>
 
@@ -84,13 +92,10 @@
 								<h2>Follow</h2>
 								<ul class="icons">
 									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://github.com/TonyKingston" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
 									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
 									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
-									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+									<li><a href=mailto:tony.kingston16@gmail.com class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
 								</ul>
 							</section>
 							<ul class="copyright">
