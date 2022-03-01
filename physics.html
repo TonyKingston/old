@@ -51,11 +51,21 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>Generic Page</h1>
+							<h1>Simulating Physics in 3D Space</h1>
 							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+							<p>The brief for the university project came in two parts. The first half involved creating an obstacle course style environment for a player to move around in, demonstrating the application of various physics principles. Here's an overview of some of the things that it involved:</p>
+							<ul>
+								<li>Used semi-implicit Euler for integrating velocity and acceleration.</li>
+								<li>Collision detection is split into broad and narrow phases, with sweep-and-prune being used for the latter. Collisions are detected between various pair of collision volumes: OBB/OBB, Sphere/Sphere, OBB/Sphere and Capsule/Capsule. Raycasts can be performed against these volumes. Collisions are resolved using projection and impulse resolution where friction is also applied. I made use of layer masks to filter which objects can collide with which and what objects should be raycastable. </li>
+								<li>I used a quadtree to spatially partion the scene. In the broadphase, only nodes which have active objects are considered for collison detection, removing a lot of unnecessary checks between static objects.</li>
+								<li>A pushdown automaton was used to manage the state of the game, allowing the user to initiate a game, pause the game and exit the game safely.</li>
+								<li>I've implemented constraints to lock the movement and orientation of an object in a particular set of axes. The pendulum uses this since I didn't what it to possibly spin out of control if the player collided with enough force.
+							</ul> 
+							<p>The second half involved creating a maze where the player needs to move around and collect coins for points. They play against an AI, which needs to pathfind around the level and also collect coins.</p>
+							<ul>
+								<li>The AI uses the A* pathfinding algorthim to navigate the level. The game reads in data from file which it then uses to construct a set of valid nodes to traverse.</li>
+								<li>The AI makes use of a state machine to switch between pursuing the player or finding a coin. They are also capable of firing out rays which they use to pin point the location of a coin.</li>
+							</ul> 
 						</div>
 					</div>
 
@@ -85,13 +95,10 @@
 								<h2>Follow</h2>
 								<ul class="icons">
 									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://github.com/TonyKingston" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
 									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
 									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
-									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+									<li><a href=mailto:tony.kingston16@gmail.com class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
 								</ul>
 							</section>
 							<ul class="copyright">
