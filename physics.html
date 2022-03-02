@@ -61,11 +61,17 @@
 								<li>A pushdown automaton was used to manage the state of the game, allowing the user to initiate a game, pause the game and exit the game safely.</li>
 								<li>I've implemented constraints to lock the movement and orientation of an object in a particular set of axes. The pendulum uses this since I didn't what it to possibly spin out of control if the player collided with enough force.
 							</ul> 
+							 <video width="880" height="620" controls>
+							 	<source src="videos/8503.mkv" type="video/mp4">
+							 </video> 
 							<p>The second half involved creating a maze where the player needs to move around and collect coins for points. They play against an AI, which needs to pathfind around the level and also collect coins.</p>
 							<ul>
 								<li>The AI uses the A* pathfinding algorthim to navigate the level. The game reads in data from file which it then uses to construct a set of valid nodes to traverse.</li>
 								<li>The AI makes use of a state machine to switch between pursuing the player or finding a coin. They are also capable of firing out rays which they use to pin point the location of a coin.</li>
-							</ul> 
+							</ul>
+							 <video width="880" height="620" controls>
+							 	<source src="videos/8503-AI.mkv" type="video/mp4">
+							 </video> 
 						</div>
 					</div>
 
