@@ -235,7 +235,13 @@
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<script src="assets/js/node_modules/darkreader/darkreader.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="https://unpkg.com/browse/darkreader@4.9.46/darkreader.js">
+				DarkReader.enable({
+					brightness: 100,
+					contrast: 90,
+					sepia: 10}
+					);
+			</script>
 	</body>
 </html>
