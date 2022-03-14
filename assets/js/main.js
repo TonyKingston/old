@@ -4,16 +4,17 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-import {
+
+(function($) {
+
+
+  import {
     enable as enableDarkMode,
     disable as disableDarkMode,
     auto as followSystemColorScheme,
     exportGeneratedCSS as collectCSS,
     isEnabled as isDarkReaderEnabled
-} from 'darkreader';
-
-
-(function($) {
+  } from 'darkreader';
 
 	var	$window = $(window),
 		$body = $('body');
@@ -39,8 +40,7 @@ import {
     brightness: 100,
     contrast: 90,
     sepia: 10,
-});
-
+    });
 
 	// Touch?
 		if (browser.mobile)
