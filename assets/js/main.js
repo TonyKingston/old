@@ -1,3 +1,11 @@
+import {
+    enable as enableDarkMode,
+    disable as disableDarkMode,
+    auto as followSystemColorScheme,
+    exportGeneratedCSS as collectCSS,
+    isEnabled as isDarkReaderEnabled
+  } from 'darkreader';
+
 /*
 	Phantom by HTML5 UP
 	html5up.net | @ajlkn
@@ -6,15 +14,6 @@
 
 
 (function($) {
-
-
-  import {
-    enable as enableDarkMode,
-    disable as disableDarkMode,
-    auto as followSystemColorScheme,
-    exportGeneratedCSS as collectCSS,
-    isEnabled as isDarkReaderEnabled
-  } from 'darkreader';
 
 	var	$window = $(window),
 		$body = $('body');
