@@ -26,6 +26,12 @@
 			}, 100);
 		});
 
+	DarkReader.enable({
+      brightness: 100,
+      contrast: 90,
+      sepia: 10
+    });
+
 	// Touch?
 		if (browser.mobile)
 			$body.addClass('is-touch');
