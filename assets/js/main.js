@@ -1,10 +1,3 @@
-import {
-    enable as enableDarkMode,
-    disable as disableDarkMode,
-    auto as followSystemColorScheme,
-    exportGeneratedCSS as collectCSS,
-    isEnabled as isDarkReaderEnabled
-  } from 'darkreader';
 
 /*
 	Phantom by HTML5 UP
@@ -35,10 +28,10 @@ import {
 			}, 100);
 		});
 
-	enableDarkMode({
+	DarkReader.enable({
     brightness: 100,
     contrast: 90,
-    sepia: 10,
+    sepia: 10
     });
 
 	// Touch?
