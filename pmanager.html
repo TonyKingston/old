@@ -51,11 +51,18 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>Generic Page</h1>
+							<h1>Combinatorics -  Creating a Password Manager</h1>
 							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+							<p>This assignment consisted of building a program to fufil the following core objectives </p>
+							<ul>
+								<li>Allow the creation and storage of passwords by encrypting some user input</li>
+								<li>Allow users to authenticate themselves by inputting a valid username and password</li>
+								<li>Perform a strength anaylsis on a list of randomly generated passwords</li>
+							</ul> 
+							<p>I will be focusing on the third problem as it was the main challenge of the assigment and serves as the most interesting point of disucssion.</p>
+							<p>First of all, I'd like to explain the rules behind the generation of the passwords. I create 20000 passwords overall which are split into two categories of 10000 each. The first set allows passwords to consists of 10 lowercase letters which can be repeated. The second set doesn't allow repeats, but opens up the number of allowed characters to the extended ASCII set of 256. For each set, the first 100 passwords are one character in length, the second 100 are two characters long, the third three characters long and so on up until they reach 100 characters long. The input data in encrypted by using the Collatz conjecture which is defined below.</p>
+							<span class="image"><img src="images/collatz.png" atl="Collatz definition"/></span>
+							<p>You can read this simply as "if the number is ever, divide by two, else triple it and add one". Starting with an offset of zero, we convert the first character in the password into a decimal value which is passed into the Collatz function. The number of iterations required to first reach one becomes the encrypted version of this character. The calculated value then becomes an offset for the next character, being added to it's decimal value before being put through the function. Once all characters have been encrypted, we have our fully encrypted password.
 						</div>
 					</div>
 
