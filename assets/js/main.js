@@ -5,7 +5,6 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-
 (function($) {
 
 	var	$window = $(window),
@@ -27,12 +26,6 @@
 				$body.removeClass('is-preload');
 			}, 100);
 		});
-
-		DarkReader.enable({
-					brightness: 100,
-					contrast: 90,
-					sepia: 10}
-		);
 
 	// Touch?
 		if (browser.mobile)
