@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Forward+ and Clustered Rendering</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<!--<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Phantom</span>
+								</a>-->
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="index.html">Under Construction</a></li>
+							<!--<li><a href="generic.html">Ipsum veroeros</a></li>
+							<li><a href="generic.html">Tempus etiam</a></li>
+							<li><a href="generic.html">Consequat dolor</a></li>
+							<li><a href="elements.html">Elements</a></li>-->
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Forward+ and Clustered Rendering</h1>
+							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
+							<p>Lighting is an important part of games, and the desire to push the limits of lighting has led to the development of several different rendering algorithms over the years. For my MComp dissertation, I compared traditonal forward rendering with deferred, forward+ (tiled forward) and clustered rendering. The latter two are the most interesting, so I'd like to take some time to discuss how I implemented them and the results that they gave.</p>
+							<h2>Forward+</h2>
+							<p>The principle idea behind forward+ is to uniformly divide the screen into tiles. For each tile, we check against every light volume in the scene to see which ones overlap with the tile. A buffer is maintained to keep track of which lights are assigned to which tiles. When it comes to final shading, we calculate the tile the current pixel is in, fetch the list of assigned lights, and then only evaluate the lighting equation for these lights. Compared to the brute force method of evaluating every light for every pixel, forward+ is much more efficient.</p>
+							<p>In my implementation, I opted for 16x16 tiles which gives 8160 tiles at 1920x1080p resolution. The tile grid is built during the programs initialisation. The tiles are expressed in view space, so there is no need to recompute them unless the fov, screen size of tile size change. The compute shader responsible for constructing the grid is dispatched with a thread group per tile, where one thread then creates the tile. Initially, I used view space to perform intersection tests against the light volumes. However, I later combined this with AABB tests to further reduce false positives. The process of building a frustum is described by Algorithm 1.</p>
+							<span class="image left">
+							</span>
+							<div class="box alt">
+								<div class="row aln-center">
+									<div class="col-12"><span class="image fit"><img src="images/forwardplus_grid.jpg" alt="" /></span></div>
+								</div>
+							</div>
+							<h2>Clustered</h2>
+							<p>Clustered rendering acts as an extension on the idea of forward+. It introduces a third dimension by subdividing the screen along the depth axis to create sets of 3D clusters.</p>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="https://github.com/TonyKingston" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
