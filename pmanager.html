@@ -58,7 +58,7 @@
 								<li>Allow the creation and storage of passwords by encrypting some user input</li>
 								<li>Allow users to authenticate themselves by inputting a valid username and password</li>
 								<li>Perform a strength anaylsis on a list of randomly generated passwords</li>
-							</ul> 
+							</ul>
 							<p>I will be focusing on the third problem as it was the main challenge of the assigment and serves as the most interesting point of disucssion.</p>
 							<p>First of all, I'd like to explain the rules behind the generation of the passwords. I create 20000 passwords overall which are split into two categories of 10000 each. The first set allows passwords to consists of 10 lowercase letters which can be repeated. The second set doesn't allow repeats, but opens up the number of allowed characters to the extended ASCII set of 256. For each set, the first 100 passwords are one character in length, the second 100 are two characters long, the third three characters long and so on up until they reach 100 characters long. The input data in encrypted by using the Collatz conjecture which is defined below.</p>
 							<span class="image"><img src="images/collatz.png" atl="Collatz definition"/></span>
@@ -90,7 +90,9 @@
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
+			<script src="modules/darkreader/darkreader.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/init.js"></script>
 
 	</body>
 </html>
