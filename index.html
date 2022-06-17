@@ -236,16 +236,28 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-		  <script src="modules/darkreader/darkreader.js" defer>
-			    DarkReader.setFetchMethod(window.fetch);
+		  <script src="modules/darkreader/darkreader.js" onclick="debugger" defer>
+			    const customStyle = document.createElement("style")
+					const darkreader = require("darkreader")
+			    darkreader.setFetchMethod(window.fetch);
 
-					DarkReader.enable({
+					darkreader.enable({
 					brightness: 100,
 					contrast: 90,
 					sepia: 10}
 					);
 
-					var enabled = DarkReader.isEnabled();
+					var enabled = darkreader.isEnabled();
+
+					const CSS = await darkreader.exportGeneratedCSS();
+					customStyle.textContent = CSS;
+					if (document.head) {
+						document.head.appendChild(customStyle);
+					} else if (document.body) {
+            document.body.appendChild(customStyle)
+          } else {
+            document.querySelector("html").appendChild(customStyle)
+          }
 			</script>
 	</body>
 </html>
