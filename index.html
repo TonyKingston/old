@@ -236,12 +236,16 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script src="modules/darkreader/darkreader.js" defer>
+		  <script src="modules/darkreader/darkreader.js" defer>
+			    DarkReader.setFetchMethod(window.fetch);
+
 					DarkReader.enable({
 					brightness: 100,
 					contrast: 90,
 					sepia: 10}
 					);
+
+					var enabled = DarkReader.isEnabled();
 			</script>
 	</body>
 </html>
